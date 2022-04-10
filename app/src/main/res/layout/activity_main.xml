@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="sensorViewModel"
+            type="com.example.autoliv.SensorAndroidViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SensorActivity"
+        android:padding="20dp"
+        >
+
+        <View
+            android:id="@+id/accelometer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/card_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+         <TextView
+             android:id="@+id/accelometer_main_title"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Accelerator 1Hz"
+             android:textColor="@color/grey_white"
+             app:layout_constraintLeft_toLeftOf="@id/accelometer_layout"
+             app:layout_constraintRight_toRightOf="@+id/accelometer_layout"
+             app:layout_constraintTop_toTopOf="@id/accelometer_layout"
+             android:textSize="26sp"
+             tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/accelometer_x_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/accelometer_layout"
+            app:layout_constraintTop_toTopOf="@+id/accelometer_x_value"
+            app:layout_constraintBottom_toBottomOf="@id/accelometer_x_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/accelometer_x_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:text="@{sensorViewModel.acceleratorX}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/accelometer_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/accelometer_main_title"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/accelometer_y_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/accelometer_layout"
+            app:layout_constraintTop_toTopOf="@+id/accelometer_y_value"
+            app:layout_constraintBottom_toBottomOf="@id/accelometer_y_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/accelometer_y_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:text="@{sensorViewModel.acceleratorY}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/accelometer_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/accelometer_x_value"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/accelometer_z_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/accelometer_layout"
+            app:layout_constraintTop_toTopOf="@+id/accelometer_z_value"
+            app:layout_constraintBottom_toBottomOf="@id/accelometer_z_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/accelometer_z_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:text="@{sensorViewModel.acceleratorZ}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/accelometer_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/accelometer_y_value"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/accelo_record_stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={sensorViewModel.accelometerButtonText}"
+            android:onClick="@{()->sensorViewModel.writeAccelometerDatatoCSV()}"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_style"
+            app:layout_constraintLeft_toLeftOf="@id/accelometer_layout"
+            app:layout_constraintRight_toRightOf="@+id/accelometer_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/accelometer_layout"
+            />
+
+
+        <View
+            android:id="@+id/gyroscope_layout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/card_background"
+            app:layout_constraintTop_toBottomOf="@id/accelometer_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/gyroscope_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gyroscope 1Hz"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/gyroscope_layout"
+            app:layout_constraintRight_toRightOf="@+id/gyroscope_layout"
+            app:layout_constraintTop_toTopOf="@+id/gyroscope_layout"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/gyroscope_x_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/gyroscope_layout"
+            app:layout_constraintTop_toTopOf="@+id/gyroscope_x_value"
+            app:layout_constraintBottom_toBottomOf="@id/gyroscope_x_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/gyroscope_x_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:text="@{sensorViewModel.gyroscopeX}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/gyroscope_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/gyroscope_main_title"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/gyroscope_y_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/gyroscope_layout"
+            app:layout_constraintTop_toTopOf="@+id/gyroscope_y_value"
+            app:layout_constraintBottom_toBottomOf="@id/gyroscope_y_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/gyroscope_y_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:text="@{sensorViewModel.gyroscopeY}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/gyroscope_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/gyroscope_x_value"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/gyroscope_z_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toLeftOf="@id/gyroscope_layout"
+            app:layout_constraintTop_toTopOf="@+id/gyroscope_z_value"
+            app:layout_constraintBottom_toBottomOf="@id/gyroscope_z_value"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/gyroscope_z_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:text="@{sensorViewModel.gyroscopeZ}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/grey_white"
+            app:layout_constraintLeft_toRightOf="@id/gyroscope_x_data"
+            app:layout_constraintTop_toBottomOf="@+id/gyroscope_y_value"
+            android:textSize="26sp"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/gyroscope_record_stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={sensorViewModel.gyroscopeButtonText}"
+            android:onClick="@{()->sensorViewModel.writeGyroscopeDatatoCSV()}"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_style"
+            app:layout_constraintLeft_toLeftOf="@id/gyroscope_layout"
+            app:layout_constraintRight_toRightOf="@+id/gyroscope_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/gyroscope_layout"
+            />
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/file_stroage_info"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Note"
+            />
+
+        <TextView
+            android:id="@+id/file_stroage_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Recorded files storaged under AutoLiv directory inside internal memory"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
