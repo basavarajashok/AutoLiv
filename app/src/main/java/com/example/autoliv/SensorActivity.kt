@@ -33,12 +33,19 @@ class SensorActivity : AppCompatActivity() {
         checkForPremissions(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,"write",WRITE_LOCATION_RQ)
         setFontProperty()
 
-        sensorAndroidViewModel.message.observe(this, Observer{
-            it.getContentIfNotHandled()?.let{
-                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+        sensorAndroidViewModel.message.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                if (ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED)
+                    Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(this, "Write permission not granted", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     private fun setFontProperty(){
         sansMedium = ResourcesCompat.getFont(this,R.font.sans_medium)!!
