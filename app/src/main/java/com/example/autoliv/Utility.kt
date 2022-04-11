@@ -25,9 +25,11 @@ object Utility {
         return File(f,FILE_SEPARATOR + filename)
     }
 
-    fun getDateTimeFromMilliseconds(currentMilliSeconds: Long): String {
-        var format = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        return format.format(Date(currentMilliSeconds))
+    fun getDateTimeFromMilliseconds(currentMilliSeconds: Long): Array<String> {
+        val dateFormat = SimpleDateFormat("dd/M/yyyy")
+        val timeFormat = SimpleDateFormat("hh:mm:ss")
+        val date = Date(currentMilliSeconds)
+        return arrayOf(dateFormat.format(date),timeFormat.format(date))
     }
 
 }

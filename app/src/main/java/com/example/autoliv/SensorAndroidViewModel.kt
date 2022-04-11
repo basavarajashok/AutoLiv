@@ -33,7 +33,7 @@ class SensorAndroidViewModel(application: Application, private val repository: S
     private lateinit var mSensorManager: SensorManager
     private var mAccelerometer: Sensor? = null
     private var mGyscrope: Sensor? = null
-    private lateinit var app: Application
+    private var app: Application
     private var mWriteAccelometertoCSV = false
     private var mWriteGyroscopetoCSV = false
     private val statusMessage = MutableLiveData<Event<String>>()
@@ -117,9 +117,9 @@ class SensorAndroidViewModel(application: Application, private val repository: S
                 lastSavedAccelerator = System.currentTimeMillis();
                 val dateAndTime = Utility.getDateTimeFromMilliseconds(lastSavedAccelerator)
                 Log.d("MYDATA MILI",lastSavedAccelerator.toString())
-                Log.d("MYDATA DATE",dateAndTime)
                 val sensorData = SensorData(
-                    dateAndTime,
+                    dateAndTime[0],
+                    dateAndTime[1],
                     event.values[0].toString(),
                     event.values[1].toString(),
                     event.values[2].toString()
@@ -137,7 +137,8 @@ class SensorAndroidViewModel(application: Application, private val repository: S
                 lastSavedGyscrope = System.currentTimeMillis();
                 val dateAndTime = Utility.getDateTimeFromMilliseconds(lastSavedGyscrope)
                 val sensorData = SensorData(
-                    dateAndTime,
+                    dateAndTime[0],
+                    dateAndTime[1],
                     event.values[0].toString(),
                     event.values[1].toString(),
                     event.values[2].toString()

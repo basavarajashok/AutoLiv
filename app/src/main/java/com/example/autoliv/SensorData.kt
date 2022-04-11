@@ -5,7 +5,8 @@ package com.example.autoliv
  */
 
 data class SensorData(
-    val dateTime: String,
+    val date: String,
+    val time: String,
     val X: String,
     val Y: String,
     val Z: String,

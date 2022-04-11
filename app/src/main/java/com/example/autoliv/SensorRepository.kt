@@ -21,11 +21,11 @@ class SensorRepository {
             if (fileName == Utility.ACCELOMETER_CSV_FILE) {
                 var path = File(getDirectoryPath(fileName).toString())
                 mAcceloMeterWriter = CSVWriter(FileWriter(path))
-                mAcceloMeterWriter?.writeNext(arrayOf("DateTime","X","Y","Z"))
+                mAcceloMeterWriter?.writeNext(arrayOf("Date","Time","X","Y","Z"))
             } else if (fileName == Utility.GYROSCOPE_CSV_FILE) {
                 var path = File(getDirectoryPath(fileName).toString())
                 mGyroscopeWriter = CSVWriter(FileWriter(path))
-                mGyroscopeWriter?.writeNext(arrayOf("DateTime","X","Y","Z"))
+                mGyroscopeWriter?.writeNext(arrayOf("Date","Time","X","Y","Z"))
             }
         }catch (e: Exception){
             e.printStackTrace()
@@ -35,10 +35,10 @@ class SensorRepository {
     fun writeData(fileName: String,sensorData: SensorData){
         try {
             if (fileName == Utility.ACCELOMETER_CSV_FILE) {
-                Log.d("TIME",sensorData.dateTime)
                 mAcceloMeterWriter?.writeNext(
                     arrayOf(
-                        sensorData.dateTime,
+                        sensorData.date,
+                        sensorData.time,
                         sensorData.X,
                         sensorData.Y,
                         sensorData.Z
@@ -47,7 +47,8 @@ class SensorRepository {
             }else if(fileName == Utility.GYROSCOPE_CSV_FILE){
                 mGyroscopeWriter?.writeNext(
                     arrayOf(
-                        sensorData.dateTime,
+                        sensorData.date,
+                        sensorData.time,
                         sensorData.X,
                         sensorData.Y,
                         sensorData.Z
