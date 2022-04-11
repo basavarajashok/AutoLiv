@@ -15,6 +15,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.autoliv.databinding.ActivityMainBinding
 
+/**
+ * Created by Basavaraj A. on 09-04-22.
+ */
+
 class SensorActivity : AppCompatActivity() {
     private val WRITE_LOCATION_RQ = 101
     private lateinit var binding: ActivityMainBinding
