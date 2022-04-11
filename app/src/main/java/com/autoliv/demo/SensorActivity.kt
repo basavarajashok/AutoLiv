@@ -1,4 +1,4 @@
-package com.example.autoliv
+package com.autoliv.demo
 
 import android.content.pm.PackageManager
 import android.graphics.Typeface
@@ -13,7 +13,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.autoliv.databinding.ActivityMainBinding
+import com.autoliv.demo.databinding.ActivityMainBinding
 
 /**
  * Created by Basavaraj A. on 09-04-22.

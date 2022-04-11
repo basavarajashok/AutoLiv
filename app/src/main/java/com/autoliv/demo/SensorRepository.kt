@@ -1,11 +1,9 @@
-package com.example.autoliv
+package com.autoliv.demo
 
-import android.util.Log
-import com.example.autoliv.Utility.getDirectoryPath
+import com.autoliv.demo.Utility.getDirectoryPath
 import com.opencsv.CSVWriter
 import java.io.File
 import java.io.FileWriter
-import java.io.IOException
 import java.lang.Exception
 
 /**

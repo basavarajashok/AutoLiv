@@ -1,23 +1,17 @@
-package com.example.autoliv
+package com.autoliv.demo
 
 import android.app.Application
 import android.content.Context
-import android.graphics.Typeface
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
-import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
-import java.util.*
 
 /**
 * Created by Basavaraj A. on 09-04-22.

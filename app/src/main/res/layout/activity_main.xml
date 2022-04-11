@@ -7,7 +7,7 @@
     <data>
         <variable
             name="sensorViewModel"
-            type="com.example.autoliv.SensorAndroidViewModel" />
+            type="com.autoliv.demo.SensorAndroidViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

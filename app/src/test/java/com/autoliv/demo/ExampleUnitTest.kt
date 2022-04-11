@@ -1,4 +1,4 @@
-package com.example.autoliv
+package com.autoliv.demo
 
 import org.junit.Test
 
